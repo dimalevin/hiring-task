@@ -55,7 +55,7 @@ class PaymentRepository extends ServiceEntityRepository
             ), $exception->getCode(), $exception);
         }
 
-        $result['min'] = (float) ($result['nin'] ?? 0);
+        $result['min'] = (float) ($result['min'] ?? 0);
         $result['max'] = (float) ($result['max'] ?? 0);
         $result['avg'] = (float) ($result['avg'] ?? 0);
 

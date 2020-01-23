@@ -27,9 +27,9 @@ class PaymentRepository extends ServiceEntityRepository
         $queryBuilder = $this->getEntityManager()->createQueryBuilder();
 
         $queryBuilder
-            ->select('p')
+            ->select('p AS paymentObj', "CONCAT(e.firstName, ' ', e.lastName) AS employeeName")
             ->from(Payment::class, 'p')
-            ->leftJoin('p.employee', 'e', 'WITH', 'p.employee = e.id')
+            ->join('p.employee', 'e', 'WITH', 'p.employee = e.id')
             ->addOrderBy('e.lastName', 'asc')
             ->addOrderBy('p.month', 'desc')
         ;

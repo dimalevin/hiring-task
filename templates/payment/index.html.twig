@@ -19,13 +19,13 @@
                 </tr>
             </thead>
             <tbody>
-            {% for payment in payments %}
+            {% for paymentRow in payments %}
                 <tr>
-                    <td>{{ payment.employee.fullName }}</td>
-                    <td>{{ payment.month ? payment.month|date('Y-m') : '' }}</td>
-                    <td>{{ payment.amount|number_format(2, '.', ',') }} CZK</td>
+                    <td>{{ paymentRow['employeeName'] }}</td>
+                    <td>{{ paymentRow['paymentObj'].month ? paymentRow['paymentObj'].month|date('Y-m') : '' }}</td>
+                    <td>{{ paymentRow['paymentObj'].amount|number_format(2, '.', ',') }} CZK</td>
                     <td>
-                        <a href="{{ path('payment_view', {'id': payment.id}) }}"><i class="fas fa-book-open list-icon" title="View"></i></a>
+                        <a href="{{ path('payment_view', {'id': paymentRow['paymentObj'].id}) }}"><i class="fas fa-book-open list-icon" title="View"></i></a>
                     </td>
                 </tr>
             {% else %}

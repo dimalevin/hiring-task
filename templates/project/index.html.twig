@@ -1,0 +1,64 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Project index{% endblock %}
+
+{% block body %}
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Project index</h1>
+        <p class="lead">You can find your project here.</p>
+    </div>
+
+    <div class="container pb-3">
+        <div class="clearfix">
+            <a href="{{ path('project_new') }}" class="btn btn-primary float-right" role="button">Create new</a>
+        </div>
+
+        <table class="table mt-3">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Status</th>
+                    <th>Total Employees</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for project in projects %}
+                <tr>
+                    <td>{{ project.name }}</td>
+                    <td>
+                        {{ project.status)}}
+                    </td>
+                    <td>{{ project.totalEmployees}}</td>
+                    <td>
+                        <a href="{{ path('project_view', {'id': project.id}) }}" class="delete-skill"><i class="fas fa-book-open list-icon" title="View"></i></a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="6" class="text-center">No records found</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+        <table>
+            <thead>
+            <tr>
+                <th>Name</th>
+                <th>Status</th>
+                <th>Total Employees</th>
+                <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            </tbody>
+        </table>
+        <div class="clearfix">
+            <a href="{{ path('project_new') }}" class="btn btn-primary float-right" role="button">Create new</a>
+        </div>
+    </div>
+{% endblock %}
+  {% block javascripts %}
+      {{ encore_entry_script_tags('project_form') }}
+  {% endblock javascripts %}

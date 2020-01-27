@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New Project{% endblock %}
+
+{% block body %}
+    <div class="px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+        <h1 class="display-4">Create new Project</h1>
+        <p class="lead">You can create your new project here.</p>
+    </div>
+
+    <div class="container mb-5">
+        {{ form_start(form) }}
+            {{ form_widget(form) }}
+            <div class="clearfix">
+
+                <a href="{{ path('project_index') }}" class="btn btn-primary float-left" role="button">Back to list</a>
+                <button class="btn float-right">{{ button_label|default('Save') }}</button>
+            </div>
+        {{ form_end(form) }}
+    </div>
+
+{% endblock %}
+{% block javascripts %}
+    {{ encore_entry_script_tags('project_form') }}
+{% endblock javascripts %}
+

@@ -1,0 +1,1 @@
+(window.webpackJsonp=window.webpackJsonp||[]).push([["project_form"],{"08BK":function(e,n){$(function(){$('select[data-select="true"]').select2()})}},[["08BK","runtime"]]]);
